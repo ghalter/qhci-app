@@ -1,0 +1,27 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+    <div class="container">
+        <!-- Content here -->
+        <div class="row align-items-center">
+
+
+            <div class="col-md-3">
+                <div id="plot"></div>
+                <a class="btn btn-primary" role="button" id="btnGetPlot" target="_blank" style="width=100%">GetPlot</a>
+                              </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+    function slide(e){
+        console.log(e);
+    }
+
+
+</script>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, session
 from plotting import generate_plot, generate_data
 from bokeh.embed import components
 
