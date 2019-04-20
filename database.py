@@ -2,7 +2,8 @@
 
 """
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import String, Integer, Float, Column, ForeignKey, create_engine
+from sqlalchemy import String, Integer, Float, Column,MetaData, ForeignKey, create_engine
+from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy.orm import relationship, sessionmaker
 from flask_sqlalchemy import SQLAlchemy
 
@@ -16,7 +17,10 @@ import json
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
+    birth_year = Column(Integer, nullable=True)
+    gender = Column(String, nullable=True)
+    field = Column(String, nullable=True)
+    experience = Column(Integer, nullable=True)
 
     entries = relationship("DataEntry", back_populates="user")
 
@@ -24,9 +28,7 @@ class DataEntry(Base):
     """
     """
     __tablename__ = 'data_entries'
-
     id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
     sigma = Column(Float, nullable=False)
     sign = Column(Integer, nullable=False)
     slope_type = Column(String, nullable=False)
@@ -40,6 +42,8 @@ class DataEntry(Base):
 
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="entries")
+
+
 
 class TrialTableOuter(Base):
     __tablename__ = 'trial_table_outer'
@@ -63,6 +67,28 @@ class TrialTableInner(Base):
     slope = Column(String, nullable=False)
 
 
+class AlchemyEncoder(json.JSONEncoder):
+    """
+    A JSONEncoder resursively parsing all objects to JSON.
+
+    """
+    def default(self, obj):
+        if isinstance(obj.__class__, DeclarativeMeta):
+            # an SQLAlchemy class
+            fields = {}
+            for field in [x for x in dir(obj) if not x.startswith('_') and x != 'metadata']:
+                data = obj.__getattribute__(field)
+                try:
+                    json.dumps(data)  # this will fail on non-encodable values, like other classes
+                    fields[field] = data
+                except TypeError:
+                    fields[field] = None
+            # a json-encodable dict
+            return fields
+        print("Encoded")
+        return json.JSONEncoder.default(self, obj)
+
+
 def import_trial_tables(path_inner, path_outer):
     import os
     p = os.path.abspath("database.db")
@@ -71,6 +97,11 @@ def import_trial_tables(path_inner, path_outer):
     Session = sessionmaker(bind=engine, autocommit=False)
     db_session = Session()
 
+    if len(db_session.query(TrialTableInner).all()) > 0:
+        print("Database already imported")
+        return
+    else:
+        print("Importing Touchstone tables")
 
     with open(path_outer, "r") as f:
         reader = csv.reader(f)
@@ -111,6 +142,32 @@ def import_trial_tables(path_inner, path_outer):
 
     db_session.commit()
 
+import zipfile
+import datetime
+import platform
+
+def export_all_tables():
+    newline = "\n"
+    if platform.system() == "Windows":
+        newline = ""
+    with open("trial.csv", "w", newline=newline) as f:
+        outcsv = csv.writer(f)
+        records = db.session.query(DataEntry).all()
+        outcsv.writerow([column.name for column in DataEntry.__mapper__.columns])
+        [outcsv.writerow([getattr(curr, column.name) for column in DataEntry.__mapper__.columns]) for curr in records]
+    with open("participants.csv", "w", newline=newline) as f:
+        outcsv = csv.writer(f)
+        records = db.session.query(User).all()
+        outcsv.writerow([column.name for column in User.__mapper__.columns])
+        [outcsv.writerow([getattr(curr, column.name) for column in User.__mapper__.columns]) for curr in records]
+
+    list_files = ["trial.csv", "participants.csv"]
+    zip_name = "export_" + datetime.datetime.now().strftime(format='%H-%M_%d-%m-%Y') + ".zip"
+    with zipfile.ZipFile(zip_name, 'w') as zipMe:
+        for file in list_files:
+            zipMe.write(file, compress_type=zipfile.ZIP_DEFLATED)
+
+    return zip_name
 
 
 if __name__ == '__main__':

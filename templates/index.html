@@ -4,12 +4,12 @@
     <div class="container">
         <!-- Content here -->
         <div class="row align-items-center">
-
-
-            <div class="col-md-3">
+            <div class="col-md-8">
+                <div id="labelThankYou" class="text-center"> <H2>Thanks for participating!</H2></div>
                 <div id="plot"></div>
-                <a class="btn btn-primary" role="button" id="btnGetPlot" target="_blank" style="width=100%">GetPlot</a>
+                <a class="btn btn-primary" role="button" id="btnGetPlot" target="_blank" style="width:100%">Next</a>
                               </div>
+
             </div>
         </div>
     </div>
@@ -17,26 +17,51 @@
 {% endblock %}
 {% block scripts %}
 <script>
+     $(document).ready(function () {
+            getPlot();
+             $("#labelThankYou").hide()
+        })
      $("#btnGetPlot").on('click', function () {
-        let slope = 1;
-        for (i = 0; i < Bokeh.documents.length; i++) {
-            var model = Bokeh.documents[i].get_model_by_name("slope_ds");
-            console.log(i)
-            if (model != null) {
-                column_ds = model;
-                slope = column_ds.data.slope;
-            }
-        }
-        $.getJSON("{{ url_for("get_plot", last_slope=slope) }}", function (data) {
-                   $("#plot").html(data.plot);
+        getPlot();
         });
-     });
      $('#slopeSlider').slider({
 	    formatter: function(value) {
 		return 'Current value: ' + value;
 	    }
     }).on('slide', slide); // Change the 'change' to any other event slide, slideStart, etc.
 
+    function getPlot(){
+        let slope = 1;
+        for (i = 0; i < Bokeh.documents.length; i++) {
+            var model = Bokeh.documents[i].get_model_by_name("slope_ds");
+            console.log(i)
+            if (model != null) {
+                column_ds = model;
+                slope = column_ds.data.slope[0];
+            }
+        }
+        $.ajax({
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    slope:slope,
+                }),
+                url: "/get_plot/"
+            }).then((r) => {
+                console.log(r);
+                if (r.finished == true){
+                    $("#plot").hide()
+                    $("#btnGetPlot").hide()
+                    $("#labelThankYou").show()
+                }
+                else{
+                    $("#plot").html(r.plot);
+                    }
+            }).catch((e) => {
+
+                console.log('error', e)
+            })
+    }
 
     function slide(e){
         console.log(e);
