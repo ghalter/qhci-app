@@ -76,6 +76,7 @@ def get_plot():
         db.session.add(d)
         db.session.commit()
     except Exception as e:
+        print(e)
         pass
     participant_id = session['participant_id']
     trial_table = session['trial_table']
