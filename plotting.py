@@ -60,9 +60,9 @@ def generate_data(slope_type=SLOPE_TYPE_QUAD, n=100, slope=1.0, amplitude = 1.2,
         trend_ys = []
         for i in range(n):
             xs.append(i / n)
-            ys.append(float(np.sin(i * q) * amplitude + np.random.normal(0, mu, 1)))
+            ys.append(float(np.sin(i * q) * (amplitude - 1.0) + np.random.normal(0, mu, 1)))
             trend_xs.append(i / n)
-            trend_ys.append(float(np.sin(i * q)))
+            trend_ys.append(0)
         trend_line = ColumnDataSource(data=dict(x=trend_xs, y=trend_ys, slope = [0] * len(trend_xs)), name="slope_ds")
 
     return ColumnDataSource(data=dict(xs=xs, ys=ys)), trend_line
@@ -104,7 +104,7 @@ def generate_plot(ds, trend_line, plot_type = GRAPH_TYPE_AREA, slope_type = SLOP
 
     elif slope_type == SLOPE_TYPE_TRIG:
         p.line(x="x", y="y", line_color="red", source=trend_line)
-        p.y_range = Range1d(-2.2, 2.2)
+        p.y_range = Range1d(-1.2, 1.2)
 
         callback = CustomJS(args=dict(source=trend_line), code="""
                     var data = source.data;

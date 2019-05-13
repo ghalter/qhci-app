@@ -33,7 +33,7 @@ def create_trial_list(participant_id):
     outer_sorted = db.session.query(TrialTableOuter).filter(TrialTableOuter.participant_id == participant_id).all()
     all_inner = db.session.query(TrialTableInner).filter(TrialTableInner.participant_id == participant_id).all()
     for i, outer in enumerate(outer_sorted):
-        for j, inner in enumerate(sample(all_inner, 33)):
+        for j, inner in enumerate(sample(all_inner, 32)):
             result.append(dict(slope_type=outer.slope_type,
                                plot_type=inner.plot_type,
                                residual=inner.residual,
@@ -108,9 +108,9 @@ def get_plot():
                                       exponent=exponent,
                                       mu=residuals)
         script, div = components(generate_plot(ds, trendline, plot_type=trial['plot_type'], slope_type=trial['slope_type']))
-        return jsonify(dict(plot=script+div, finished = False))
+        return jsonify(dict(plot=script+div, finished = False, current=current_trial_index))
     else:
-        return jsonify(dict(plot="", finished = True))
+        return jsonify(dict(plot="", finished = True, current=0))
 
 @app.route('/done')
 def done():
