@@ -4,6 +4,7 @@ from bokeh.embed import components
 from sqlalchemy import and_
 from database import *
 from random import sample
+import json
 
 app = Flask(__name__)
 app.debug = True
@@ -12,6 +13,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 app.secret_key = 'mykey'
 db.init_app(app)
 
+
+def read_config():
+    with open("config.json", "r") as f:
+        data = json.load(f)
+    return data
 
 def create_trial_list(participant_id):
     """
@@ -22,6 +28,8 @@ def create_trial_list(participant_id):
     :return:
     """
     result = []
+    participant_id += int(read_config()['offset'])
+    print(participant_id)
     outer_sorted = db.session.query(TrialTableOuter).filter(TrialTableOuter.participant_id == participant_id).all()
     all_inner = db.session.query(TrialTableInner).filter(TrialTableInner.participant_id == participant_id).all()
     for i, outer in enumerate(outer_sorted):
