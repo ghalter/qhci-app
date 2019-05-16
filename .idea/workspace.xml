@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67355eaf-5b17-46b8-a173-610a36177023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configs/config_alexander.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/config_anastasia.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/config_gaudenz.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/config_masha.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/config_nick.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eval/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eval/anastasia.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eval/eval.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eval/masha.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-936">
-              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="576">
+              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
               <folding>
                 <element signature="e#0#78#0" expanded="true" />
               </folding>
@@ -43,19 +40,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base_layout.html">
+        <entry file="file://$PROJECT_DIR$/eval/eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+            <state relative-caret-position="342">
+              <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eval/complete_dataset.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="93" column="71" lean-forward="true" selection-start-line="93" selection-start-column="71" selection-end-line="93" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="43" selection-end-column="57" />
+              <folding>
+                <element signature="e#9#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base_layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1062">
+              <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+            <state relative-caret-position="522">
+              <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
               <folding>
                 <element signature="e#1#53#0" expanded="true" />
               </folding>
@@ -64,10 +94,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/config_gaudenz.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="59" column="66" lean-forward="true" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+            <state relative-caret-position="1062">
+              <caret line="59" column="66" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -127,10 +166,11 @@
         <option value="$PROJECT_DIR$/configs/config_gaudenz.json" />
         <option value="$PROJECT_DIR$/configs/config_masha.json" />
         <option value="$PROJECT_DIR$/configs/config_nick.json" />
-        <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/plotting.py" />
+        <option value="$PROJECT_DIR$/config.json" />
+        <option value="$PROJECT_DIR$/eval/eval.py" />
       </list>
     </option>
   </component>
@@ -146,7 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,10 +193,16 @@
               <item name="qhci-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="qhci-app" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="qhci-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qhci-app" type="462c0819:PsiDirectoryNode" />
+              <item name="eval" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,13 +210,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programming\Git\qhci-app\configs" />
-      <recent name="C:\Users\gaude\Documents\GitHub\qhci-app\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\Git\qhci-app\eval" />
+      <recent name="E:\Programming\Git\qhci-app\eval\masha.db" />
       <recent name="C:\Users\gaude\Documents\GitHub\qhci-app\resources" />
       <recent name="C:\Users\gaude\Documents\GitHub\qhci-app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programming\Git\qhci-app\eval" />
+      <recent name="E:\Programming\Git\qhci-app" />
+      <recent name="E:\Programming\Git\qhci-app\configs" />
+      <recent name="C:\Users\gaude\Documents\GitHub\qhci-app\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -186,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.eval">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="qhci-app" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,6 +278,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="qhci-app" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/eval" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval/eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="plotting" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="qhci-app" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -254,9 +324,11 @@
       <item itemvalue="Python.app" />
       <item itemvalue="Python.plotting" />
       <item itemvalue="Python.database" />
+      <item itemvalue="Python.eval" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.eval" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.database" />
         <item itemvalue="Python.plotting" />
@@ -378,27 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2898">
-          <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#8#1" />
-            <element signature="e#9#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demography.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/config_alexander.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -410,13 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/config_gaudenz.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -436,8 +480,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base_layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
+        <state relative-caret-position="1062">
           <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="59" column="66" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/demography.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="954">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
+          <folding>
+            <element signature="e#1#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/config_gaudenz.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -448,33 +529,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="59" column="66" lean-forward="true" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-936">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="576">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
             <element signature="e#0#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plotting.py">
+    <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+        <state relative-caret-position="126">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="43" selection-end-column="57" />
           <folding>
-            <element signature="e#1#53#0" expanded="true" />
+            <element signature="e#9#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval/complete_dataset.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="93" column="71" lean-forward="true" selection-start-line="93" selection-start-column="71" selection-end-line="93" selection-end-column="71" />
         </state>
       </provider>
     </entry>
